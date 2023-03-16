@@ -29,14 +29,14 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:512, height:512, startX:0 , startY:1050 },
-				{width:512, height:512, startX:520, startY:1050},
-				{width:512, height:512, startX:1035, startY:1050},
-				{width:512, height:512, startX:1550, startY:1050},
-				{width:512, height:512, startX:2064, startY:1050},
-				{width:512, height:512, startX:2575, startY:1050},
-				{width:512, height:512, startX:3090, startY:1050},
-				{width:512, height:512, startX:3599, startY:1050}
+				{width:512, height:512, startX:0 , startY:1030 },
+				{width:512, height:512, startX:520, startY:1030},
+				{width:512, height:512, startX:1035, startY:1030},
+				{width:512, height:512, startX:1550, startY:1030},
+				{width:512, height:512, startX:2064, startY:1030},
+				{width:512, height:512, startX:2575, startY:1030},
+				{width:512, height:512, startX:3090, startY:1030},
+				{width:512, height:512, startX:3599, startY:1030}
 				
 			]
 		},
@@ -47,8 +47,8 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:512, height:512, startX:0, startY:2080},
-				{width:512, height:512, startX:520, startY:2080}
+				{width:512, height:512, startX:0, startY:2065},
+				{width:512, height:512, startX:520, startY:2065}
 			]
 		},
 		//The jump animation 
@@ -82,10 +82,10 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:512, height:512, startX:0, startY:530},
-				{width:512, height:512, startX:520, startY:530},
-				{width:512, height:512, startX:1035, startY:530},
-				{width:512, height:512, startX:1550, startY:530}
+				{width:512, height:512, startX:0, startY:515},
+				{width:512, height:512, startX:520, startY:515},
+				{width:512, height:512, startX:1035, startY:515},
+				{width:512, height:512, startX:1550, startY:515}
 				
 			]
 		}

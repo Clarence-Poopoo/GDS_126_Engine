@@ -16,7 +16,7 @@ ground.img.src=`images/ground.png`
 //A platform
 var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
 plat.img.src = `images/platform.png`
-plat.drawStaticImage([400,200, 256, 64])
+
 
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
@@ -80,16 +80,16 @@ bg.img.src=`images/trees3.png`
 var bullets=[]
 var canShoot=true;
 var shotTimer = 0;
-var shotDelay = 21;
+var shotDelay = 55;
 var currentBullet = 0;
 
 for(let i=0; i<100; i++)
 {
 	bullets[i] = new GameObject({width:64, height:64})
 	bullets[i].img.src='images/fireball.png'
-	bullets[i].makeSprite(playerData)
+	//bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	//bullets[i].changeState(`walk`)
 }
 
 //console.log(bullets)
@@ -98,9 +98,11 @@ for(let i=0; i<100; i++)
 
 gameStates[`level1`] = function()
 {
+	
 	if(!keys[`W`] && !keys[`S`] && !keys[`D`] && !keys[`A`] && !keys[` `] && canShoot && wiz.canJump)
 	{
 		wiz.changeState(`idle`)
+		
 	}
 	
 	
@@ -140,7 +142,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		//sounds.play(`splode`,1)
+		sounds.play('jump',.08)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
@@ -166,7 +168,7 @@ gameStates[`level1`] = function()
 			bullets[currentBullet].y = wiz.y + 20;
 			bullets[currentBullet].dir = wiz.dir;
 			
-			sounds.play(`fireball`,1)
+			sounds.play(`fireball`,.5)
 
 			currentBullet++;
 			if(currentBullet>=bullets.length)
@@ -290,16 +292,17 @@ gameStates[`level1`] = function()
 
 	//Renders sprites group
 	sprites.play().render(`drawSprite`);
-
+	plat.drawStaticImage([-128,-95, 256, 64])
 	//renders player
 	wiz.play(function(){return}).drawSprite()
 	
 	//Moves, checks collision and renders projectiles.
 	for(let i=0; i<bullets.length; i++)
 	{
-		if(bullets[i].overlap(stage)) bullets[i].vy+=1;
+		//if(bullets[i].overlap(stage)) bullets[i].vy+=1;
 		bullets[i].move()
-		bullets[i].play(function(){return}).drawSprite()
+		bullets[i].drawStaticImage()
+		//bullets[i].play(function(){return}).drawSprite()
 		//bullets[i].angle+=10
 		while(g1.collide(bullets[i].bottom) && bullets[i].vy>=0)
 		{
@@ -314,6 +317,7 @@ gameStates[`level1`] = function()
 	
 	//Renders front of cave
 	front.play().render(`drawSprite`);
+	
 	
 
 }
